@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net8.0;net9.0;net10.0</TargetFrameworks>
+    <RootNamespace>Tamp.AzureAppService</RootNamespace>
+    <AssemblyName>Tamp.AzureAppService</AssemblyName>
+  </PropertyGroup>
+
+  <PropertyGroup Label="Package">
+    <PackageId>Tamp.AzureAppService</PackageId>
+    <Description>Azure App Service slot and lifecycle operations. Wraps az webapp deployment slot swap / list / create / delete via Tamp.AzureCli.V2 idioms. Companion to Tamp.AzureCli.V2 for adopters who want typed slot-swap targets without re-inventing the az invocations.</Description>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <IsPackable>true</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="$(TampCorePath)" Condition="'$(TampCoreMode)' == 'project'" />
+    <PackageReference Include="Tamp.Core" Condition="'$(TampCoreMode)' == 'package'" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" PrivateAssets="All" />
+  </ItemGroup>
+
+</Project>
